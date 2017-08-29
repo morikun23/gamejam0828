@@ -50,6 +50,9 @@ public class GameScene : ToyBox.Scene {
 			if(interval < 0) {
 				interval = 40f;
 				difficulty += 1;
+				if(difficulty > 15) {
+					difficulty = 10;
+				}
 				Debug.Log(difficulty);
 			}
 			yield return null;
