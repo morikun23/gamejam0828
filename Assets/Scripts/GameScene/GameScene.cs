@@ -53,6 +53,6 @@ public class GameScene : ToyBox.Scene {
 	public override IEnumerator OnExit() {
 		AppManager.Instance.m_fade.StartFade(new FadeOut() , Color.black , 0.5f);
 		yield return new WaitWhile(AppManager.Instance.m_fade.IsFading);
-		UnityEngine.SceneManagement.SceneManager.LoadScene("Game");
+		UnityEngine.SceneManagement.SceneManager.LoadScene("Title");
 	}
 }

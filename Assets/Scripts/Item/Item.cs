@@ -12,7 +12,7 @@ public class Item : MonoBehaviour {
 	protected virtual void OnGotten() {
 		GameObject emergedEffect = Instantiate(effect , transform.position , Quaternion.identity);
 		Destroy(this.gameObject);
-		Destroy(emergedEffect , 2f);
+		Destroy(emergedEffect , 1.5f);
 	}
 
 	public void OnTriggerEnter2D(Collider2D collider) {

@@ -2,15 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Balloon : MonoBehaviour {
+public class Balloon : Item {
 
 	// Use this for initialization
-	void Start () {
-		
+	void Start() {
+
 	}
-	
+
 	// Update is called once per frame
-	void Update () {
-		
+	void Update() {
+		transform.position += Vector3.left * 0.02f;
+	}
+
+	protected override void OnGotten() {
+		GameScene.score.balloonCount += 1;
+		base.OnGotten();
 	}
 }

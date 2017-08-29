@@ -13,7 +13,7 @@ public class Player : MonoBehaviour {
 	[SerializeField]
 	int jumpPower;
 
-	const float GRAVITY_MAX = 3;
+	const float GRAVITY_MAX = 5;
 
 	public bool isFreeze;
 	bool isDead;
