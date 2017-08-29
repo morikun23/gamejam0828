@@ -10,7 +10,7 @@ public class FuelBarManger : MonoBehaviour
 
     private Slider slider;  //燃料ゲージのスライダー
 
-    private float fuelValue = 100;  //燃料ゲージの値
+    //private float fuelValue = 100;  燃料ゲージの値
 
 	// Use this for initialization
 	void Start ()
