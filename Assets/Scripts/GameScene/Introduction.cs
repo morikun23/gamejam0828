@@ -5,7 +5,7 @@ using UnityEngine;
 public class Introduction : MonoBehaviour {
 
 	public IEnumerator PlayerJoin(Player player) {
-		Vector3 startPos = new Vector3(-10 , 2);
+		Vector3 startPos = new Vector3(-10 , 1);
 		Vector3 defaultPos = new Vector3(-7 , 0);
 
 		player.GetComponent<Rigidbody2D>().isKinematic = true;
