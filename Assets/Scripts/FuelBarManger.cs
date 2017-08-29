@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class FuelBarManger : MonoBehaviour
 {
+	[SerializeField]
+	Player player;
+
     private Slider slider;  //燃料ゲージのスライダー
 
     private float fuelValue = 100;  //燃料ゲージの値
@@ -19,9 +22,6 @@ public class FuelBarManger : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        //燃料ゲージを減らす
-        fuelValue -= 0.5f;
-
-        slider.value = fuelValue;
+        slider.value = player.energy;
 	}
 }

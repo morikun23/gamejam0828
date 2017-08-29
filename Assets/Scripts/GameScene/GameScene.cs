@@ -5,13 +5,25 @@ using ToyBox;
 
 public class GameScene : ToyBox.Scene {
 
+	public class Score {
+		public float distace;
+		public int balloonCount;
+		public int bigBallonnCount;
+		public int rescueCount;
+	}
+
+	public static Score score;
+
 	[SerializeField]
 	Player player;
 
-	Introduction intro;
+	Introduction introduction;
+	Conclusion conclusion;
 
 	public override void Start() {
-		intro = GetComponent<Introduction>();
+		player.isFreeze = true;
+		introduction = GetComponent<Introduction>();
+		conclusion = GetComponent<Conclusion>();
 		base.Start();
 	}
 
@@ -23,7 +35,8 @@ public class GameScene : ToyBox.Scene {
 		AppManager.Instance.m_fade.StartFade(new FadeIn() , Color.black , 0.5f);
 		yield return new WaitWhile(AppManager.Instance.m_fade.IsFading);
 
-		yield return intro.PlayerJoin(player);
+		yield return introduction.PlayerJoin(player);
+		player.isFreeze = false;
 	}
 
 	public override IEnumerator OnUpdate() {
@@ -34,6 +47,7 @@ public class GameScene : ToyBox.Scene {
 				break;
 			}
 		}
+		yield return conclusion.GameOver();
 	}
 
 	public override IEnumerator OnExit() {
@@ -41,5 +55,4 @@ public class GameScene : ToyBox.Scene {
 		yield return new WaitWhile(AppManager.Instance.m_fade.IsFading);
 		UnityEngine.SceneManagement.SceneManager.LoadScene("Game");
 	}
-
 }

@@ -29,13 +29,13 @@ public class scroll : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        transform.Translate(-0.03f, 0, 0);
-        float width = GetComponent<SpriteRenderer>().bounds.size.x;
-        if (transform.position.x + -0.03f +0.1f <= -width)
+        transform.Translate(-0.02f, 0, 0);
+        float width = pair.GetComponent<SpriteRenderer>().bounds.size.x;
+        if (transform.position.x + -0.02f <= -width)
         {
-            transform.position = new Vector3(width, 0, 0);
-            pair.transform.position = new Vector3(width, 0, 0);
-            pair.transform.position = transform.position - new Vector3(width / 2 + width / 2, 0, 0);
+            transform.position = pair.transform.position + new Vector3(width, 0 , 0);
+			//pair.transform.position = new Vector3(width, 0, 0);
+			//pair.transform.position = tra
         }
 	}
 }
