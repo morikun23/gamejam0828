@@ -5,11 +5,13 @@ using UnityEngine.UI;
 
 public class FuelBarManger : MonoBehaviour
 {
-    const float FUEL_DOWN = 0.1f;  //燃料の減少値
+    const int FUEL_DOWN = 1;  //燃料の減少値
 
     private Slider slider;  //燃料ゲージのスライダー
 
     private float fuelValue = 100;  //燃料ゲージの値
+
+    Player player;
 
 	// Use this for initialization
 	void Start ()
@@ -22,8 +24,14 @@ public class FuelBarManger : MonoBehaviour
 	void Update ()
     {
         //燃料ゲージを減らす
-        fuelValue -= FUEL_DOWN;
+        player = GetComponent<Player>();
 
-        slider.value = fuelValue;
+        Debug.Log(player);
+
+        if( player )
+        {
+            player.Damage(FUEL_DOWN);
+        }
+        
     }
 }
