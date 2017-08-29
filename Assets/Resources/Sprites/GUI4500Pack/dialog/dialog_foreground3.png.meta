@@ -64,6 +64,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+<<<<<<< HEAD
   - buildTarget: Android
     maxTextureSize: 1024
     textureFormat: -1
@@ -72,6 +73,8 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+=======
+>>>>>>> origin/Suzuki
   spriteSheet:
     serializedVersion: 2
     sprites: []
