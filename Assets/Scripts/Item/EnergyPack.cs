@@ -8,9 +8,10 @@ public class EnergyPack : Item {
 	void Start () {
 		
 	}
-	
+
 	// Update is called once per frame
-	void Update () {
+	public override void Update() {
+		base.Update();
 		transform.position += Vector3.left * 0.02f;
 	}
 

@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Balloon : Item {
-
+	
 	// Use this for initialization
 	void Start() {
 
 	}
 
 	// Update is called once per frame
-	void Update() {
+	public override void Update() {
+		base.Update();
 		transform.position += Vector3.left * 0.02f;
 	}
 

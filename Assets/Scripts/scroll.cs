@@ -33,9 +33,16 @@ public class scroll : MonoBehaviour {
         float width = GetComponent<SpriteRenderer>().bounds.size.x;
         if (transform.position.x + -0.03f +0.1f <= -width)
         {
+<<<<<<< HEAD
             transform.position = new Vector3(width, 0, 0);
             pair.transform.position = new Vector3(width, 0, 0);
             pair.transform.position = transform.position - new Vector3(width / 2 + width / 2, 0, 0);
+=======
+			Debug.Log("SCROLL");
+            transform.position = pair.transform.position + new Vector3(width, 0 , 0);
+			//pair.transform.position = new Vector3(width, 0, 0);
+			//pair.transform.position = tra
+>>>>>>> 1919d9bd98e4a77013cdbb682b4a9d876a792e1f
         }
 	}
 }

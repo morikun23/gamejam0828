@@ -12,6 +12,8 @@ public class GameScene : ToyBox.Scene {
 		public int rescueCount;
 	}
 
+	public int difficulty { get; private set; }
+	private float interval;
 	public static Score score;
 
 	[SerializeField]
@@ -21,6 +23,7 @@ public class GameScene : ToyBox.Scene {
 	Conclusion conclusion;
 
 	public override void Start() {
+		score = new Score();
 		player.isFreeze = true;
 		introduction = GetComponent<Introduction>();
 		conclusion = GetComponent<Conclusion>();
@@ -36,11 +39,19 @@ public class GameScene : ToyBox.Scene {
 		yield return new WaitWhile(AppManager.Instance.m_fade.IsFading);
 
 		yield return introduction.PlayerJoin(player);
-		player.isFreeze = false;
 	}
 
 	public override IEnumerator OnUpdate() {
+		player.isFreeze = false;
+		difficulty = 1;
 		while (true) {
+			score.distace += 0.1f;
+			interval -= 0.1f;
+			if(interval < 0) {
+				interval = 40f;
+				difficulty += 1;
+				Debug.Log(difficulty);
+			}
 			yield return null;
 
 			if (player.IsDead()) {

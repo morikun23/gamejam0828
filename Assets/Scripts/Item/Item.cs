@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Item : MonoBehaviour {
 	
+	public virtual void Update() {
+		if(transform.position.x < -12f) {
+			Destroy(this.gameObject);
+		}
+	}
+
 	protected Player player;
 
 	[SerializeField]
