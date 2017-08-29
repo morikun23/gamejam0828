@@ -33,6 +33,7 @@ public class scroll : MonoBehaviour {
         float width = pair.GetComponent<SpriteRenderer>().bounds.size.x;
         if (transform.position.x + -0.02f <= -width)
         {
+			Debug.Log("SCROLL");
             transform.position = pair.transform.position + new Vector3(width, 0 , 0);
 			//pair.transform.position = new Vector3(width, 0, 0);
 			//pair.transform.position = tra
