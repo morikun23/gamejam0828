@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
+using ToyBox;
 
 public class ResultScene : MonoBehaviour
 {
@@ -21,8 +23,9 @@ public class ResultScene : MonoBehaviour
 
     public AudioSource sound1;
 
+	private float time;
 
-    private float time;
+	private bool isClicked;
 
     //各スコアの数値
     int distance;
@@ -32,7 +35,7 @@ public class ResultScene : MonoBehaviour
     int score;
 
 	// Use this for initialization
-	void Start ()
+	public void Start ()
     {
         //スコアの代入
         distance = 10;
@@ -44,25 +47,24 @@ public class ResultScene : MonoBehaviour
         time = 0;
 
         scoreResult.text = "スコア：0";
+		
 	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-        //スコアの表示
-        ScoreDisplay();
 
-        time += Time.deltaTime;
+	// Update is called once per frame
+	public void Update ()
+    {
+		time += Time.deltaTime;
+		ScoreDisplay();
     }
 
-    //各スコアの表示
-    void ScoreDisplay()
+	//各スコアの表示
+	void ScoreDisplay()
     {
-        scoreDistance.text = "すすんだキョリ　" + distance.ToString() + "M";
-        scoreRedBulloon.text = "あかのふうせん　" + redBulloon.ToString() + "コ";
-        scoreGoldBulloon.text = "きんのふうせん　" + goldBulloon.ToString() + "コ";
+        scoreDistance.text = "すすんだキョリ　" + GameScene.score.distace.ToString() + "M";
+        scoreRedBulloon.text = "あかのふうせん　" + GameScene.score.balloonCount.ToString() + "コ";
+        scoreGoldBulloon.text = "きんのふうせん　" + GameScene.score.bigBallonnCount.ToString() + "コ";
 
-        if (score < 10000)
+        if (score < GameScene.score.TotalScore)
         {
             score += (int)time * 100;
         }
@@ -77,6 +79,10 @@ public class ResultScene : MonoBehaviour
     //タイトルへ戻る
     public void BackTitle()
     {
-        SceneManager.LoadScene("Title");
+        SceneManager.LoadScene("StartUp");
     }
+
+	public void OnClick() {
+		isClicked = true;
+	}
 }

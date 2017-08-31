@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Balloon : Item {
-	
+public class BigBalloon : Item {
+
 	// Use this for initialization
 	void Start() {
 
@@ -16,7 +16,7 @@ public class Balloon : Item {
 	}
 
 	protected override void OnGotten() {
-		GameScene.score.balloonCount += 1;
+		GameScene.score.bigBallonnCount += 1;
 		AudioSource.PlayClipAtPoint(Resources.Load<AudioClip>("Audios/item") , transform.position);
 		base.OnGotten();
 	}

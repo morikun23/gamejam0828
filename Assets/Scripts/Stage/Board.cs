@@ -2,22 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnergyPack : Item {
+public class Board : MonoBehaviour {
 
 	// Use this for initialization
-	void Start () {
+	public void Start () {
 		
 	}
-
-	// Update is called once per frame
-	public override void Update() {
-		base.Update();
-		transform.position += Vector3.left * 0.03f;
-	}
-
-	protected override void OnGotten() {
-		player.Charge();
-		base.OnGotten();
-	}
 	
+	// Update is called once per frame
+	public virtual void Update () {
+		transform.position += Vector3.left * 0.03f;
+		if(transform.position.x < -15) {
+			Destroy(this.gameObject);
+		}
+	}
 }

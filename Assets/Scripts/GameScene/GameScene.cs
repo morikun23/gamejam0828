@@ -6,10 +6,20 @@ using ToyBox;
 public class GameScene : ToyBox.Scene {
 
 	public class Score {
-		public float distace;
+		public int distace;
 		public int balloonCount;
 		public int bigBallonnCount;
 		public int rescueCount;
+		public int TotalScore {
+			get {
+				int a = bigBallonnCount * 100;
+				int b = balloonCount * 10;
+				int c = rescueCount;
+				int d = distace * 10;
+				return a + b + c + d;
+			}
+		}
+
 	}
 
 	public int difficulty { get; private set; }
@@ -21,6 +31,9 @@ public class GameScene : ToyBox.Scene {
 
 	Introduction introduction;
 	Conclusion conclusion;
+
+	[SerializeField]
+	DistanceBoard board;
 
 	public override void Start() {
 		score = new Score();
@@ -44,8 +57,8 @@ public class GameScene : ToyBox.Scene {
 	public override IEnumerator OnUpdate() {
 		player.isFreeze = false;
 		difficulty = 1;
+
 		while (true) {
-			score.distace += 0.1f;
 			interval -= 0.1f;
 			if(interval < 0) {
 				interval = 40f;
@@ -67,6 +80,6 @@ public class GameScene : ToyBox.Scene {
 	public override IEnumerator OnExit() {
 		AppManager.Instance.m_fade.StartFade(new FadeOut() , Color.black , 0.5f);
 		yield return new WaitWhile(AppManager.Instance.m_fade.IsFading);
-		UnityEngine.SceneManagement.SceneManager.LoadScene("Title");
+		UnityEngine.SceneManagement.SceneManager.LoadScene("Result");
 	}
 }
